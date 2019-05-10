@@ -19,43 +19,67 @@ typedef struct LNode *LinkList;
 
 Status InitList(LinkList *L);
 int LocateElem(LinkList L,ElemType e);
-Status ListDelete(LinkList L,int i);
 int ListLength(LinkList L);
 
 int main()
 {
-    LinkList list,q;
-    int e,locate,length;
-    char c;
-    InitList(&list);
+    LinkList list_1,list_2,list_3,p,q,m;
+    char c,d;
+    int length;
+    InitList(&list_1);
+    InitList(&list_2);
+    InitList(&list_3);
+    InitList(&p);
     InitList(&q);
-    list->next = q;
+    InitList(&m);
+    list_1->next = p;
+    list_2->next = q;
+    list_3->next = m;
     while(c != '\n')
     {
-        scanf("%d",&(q->data));
+        scanf("%d",&(p->data));
         c = getchar();
+        p->next = (LinkList)malloc(sizeof(struct LNode));
+        p = p->next;
+    }
+    p->next = NULL;
+    p = list_1->next;
+
+    while(d != '\n')
+    {
+        scanf("%d",&(q->data));
+        d = getchar();
         q->next = (LinkList)malloc(sizeof(struct LNode));
         q = q->next;
     }
     q->next = NULL;
-    length = ListLength(list);
-    scanf("%d",&e);
-    locate = LocateElem(list,e);
-    if(locate == 1)
+    q = list_2->next;
+
+    while(p->next != NULL)
     {
-        printf("该结点没有前驱结点\n");
+        if(LocateElem(list_2,p->data)!=0)
+        {
+            m->data = p->data;
+            m->next = (LinkList)malloc(sizeof(struct LNode));
+            m = m->next;
+        }
+        p = p->next;
+    }
+    m->next = NULL;
+    m = list_3->next;
+    length = ListLength(list_3);
+    if(length == 1)
+    {
+        printf("没有交集\n");
     }
     else
     {
-        ListDelete(list,--locate);
-        q = list->next;
-        for (int j = 0; j < (length-2); ++j)
+        for (int i = 0; i < (length-1); ++i)
         {
-            printf("%d",q->data);
-            if(j != (length-3))printf(" ");
-            q = q->next;
+            printf("%d ",m->data);
+            m = m->next;
         }
-        printf("\n");   ;
+        printf("\n");
     }
     return 0;
 }
