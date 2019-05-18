@@ -1,0 +1,22 @@
+
+ID: 1
+name: a
+the score of lesson1: 100
+the score of lesson2: 100
+the score of lesson3: 100
+the score of lesson4: 100
+the score of lesson5: 100
+ID: 5
+name: e
+the score of lesson1: 96
+the score of lesson2: 96
+the score of lesson3: 96
+the score of lesson4: 96
+the score of lesson5: 96
+ID: 3
+name: c
+the score of lesson1: 98
+the score of lesson2: 98
+the score of lesson3: 98
+the score of lesson4: 98
+the score of lesson5: 98
